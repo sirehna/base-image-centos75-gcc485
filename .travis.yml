@@ -4,17 +4,21 @@ services:
 env:
   global:
   - DOCKER_USERNAME=gjacquenot
-  - secure: HSh0y1n60VVzxhJYDzQqy0fsB48vuZpXJ3NdKZEMNx0Mn3rACQrVk9wZKCB7nO5qLmzHaNsRQ/CpGQJLqKhRj/PCjUCMSHYCICkdQ4u+jAWsWYM32gFJyvAs+VCynehiREJnrSP3wmkRPR1wM8htN317bRP7FuezenTkdcQrj9lqv+1IjIOBiagLmvve8mgHaATwSc8v2TpRgtWmuQ6I2WIwQdogJ0dsomHNt+frsXAMaLRpZTdoThWaoZaXZdc5ZEowDW6bIyukIWYt+vAAm9RBICk0nuGnIUsgopHLuySE5JxLVLIsxy1J20zSFmDB3NUPGRoB1X1kOHaSyiE2lj/iHsVGa0wpJ55hZ4MBK/JU4JrJPazHlq9wNi/0VE91+oA26ftf7q+WYlI8RmpvEh4weMMBaYs1Sir5dQlzPfxWsuoJxCO9v5wjZKlgmNnQ/LBW3VK0XEsCzr4nrvLC6AIc5Y52FmGwzvim5n7WM9nyNThUUDM8mRm+uxntd7Ubnw15he3BnbHxaxnLMk9atOHpgD9C3djviIa3ysiSoREbPM5MVFcJsfPx2mX2pEs8s1bLSw9+b0XBFv+lCRuSn1tADuX2UB8QgqT31ajIt9nOpJFuQBOh7fg74S+7BVdxJLjuQEz3MQQxAsd14wcT1dpuQ5HuMLqKgBCAxMr7dUA=
+  - secure: "NzXMnOFq9Y4qjf8Jh9KkCdP0PGBqC2nDVk7aqEPMZpALCgMTrbq6DVII2Q+wn2bRqlxpciHN//Tyx8UOaRN5UqIv4O8S8SiPhB73L9+uFEGAs1VdSU+goLJ1feoKerG0UXWuEOS8XQhAhRRbisn3eaMWxDZ21fjCUmffcM88uUqpFOqUpAmWr65dcSj+b4rBSQjSiHzAsG0gl2Dwku/nKdeilJEkB4Cf+eko+QbyP5ILxjKytGFxg6LU+T/sYHecXJDQFqNiyZg63BqM+6FYqIaZrX0sM24yWDgRNU45pyr5VgrDf3f+GYdItB6c4BuyY21iGEkssPOz4e5gWkVOew9wrYKhrq/g3tr01yWwwx4WC3b7y4JOO28gFB4GStS3tSixEQn3ukePMnrYZkUoArBeGYVoc8uIRiQWMPhNCOtHWv/MFLWOrm5L7ZLV50zB+DN2HQdSt+lcU+SKQKJPWUHQ6WIqy7ohM/ca4RtRyteZ8P2J0Kz/nJhrzw2deKeu03BfLATjZrjLL7uF1g2K4ErN7sKjVSoUbG7ZUFJUn7evIIHMahgGx+EwfSzj/4N6QHZgxWDfJ1fr3QnsthMV1ejC8jZOXnCMSalCn1hUTZ8kA6m8UDPq3q3CbbotN3DExLMJFHcjMRY0wU3rHZT3w9O5BnxgCWKkL4SSPWc2MBw="
+
 before_install:
 - echo "Before install"
 before_script:
-- docker pull gjacquenot/ssc_build_debian9_gcc8 || true
+- docker pull gjacquenot/ssc_build_centos75 || true
 script:
-- docker build --pull --cache-from gjacquenot/ssc_build_debian9_gcc8 --tag gjacquenot/ssc_build_debian9_gcc8 .
+- docker build --pull --cache-from gjacquenot/ssc_build_centos75 --tag gjacquenot/ssc_build_centos75 .
 after_script:
 - docker images
 after_success:
-- if [[ "$TRAVIS_BRANCH" == "master" ]]; then docker login -u $DOCKER_USERNAME -p
-  $DOCKER_PASSWORD ; docker push gjacquenot/ssc_build_debian9_gcc8 ; fi
+- if [[ "$TRAVIS_BRANCH" == "master" ]];
+  then
+  docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
+  docker push gjacquenot/ssc_build_centos75 ;
+  fi
 notifications:
   email: true
