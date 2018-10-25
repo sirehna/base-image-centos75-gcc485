@@ -2,18 +2,22 @@ FROM centos:7.5.1804
 
 RUN yum update -y && \
     yum install -y \
+        bzip2-devel \
         cmake \
         gcc \
         gcc-c++ \
         gfortran \
+        git \
+        glibc-static \
+        lapack blas \
+        lapack-devel blas-devel \
+        lapack-static blas-static \
+        libgfortran-static \
+        libquadmath-static \
+        libstdc++-static \
         make \
         wget \
-        which \
-        bzip2-devel \
-        lapack lapack-devel blas blas-devel \
-        lapack-static blas-static \
-        libgfortran-static libquadmath-static  \
-        glibc-static libstdc++-static
+        which
 
 RUN mkdir -p /opt
 WORKDIR /opt
