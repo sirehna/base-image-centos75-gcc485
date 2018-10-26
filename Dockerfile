@@ -16,6 +16,7 @@ RUN yum update -y && \
         libquadmath-static \
         libstdc++-static \
         make \
+        patch \
         wget \
         which
 
