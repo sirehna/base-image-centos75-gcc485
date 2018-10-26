@@ -3,22 +3,22 @@ services:
 - docker
 env:
   global:
-  - DOCKER_USERNAME=gjacquenot
-  - secure: "NzXMnOFq9Y4qjf8Jh9KkCdP0PGBqC2nDVk7aqEPMZpALCgMTrbq6DVII2Q+wn2bRqlxpciHN//Tyx8UOaRN5UqIv4O8S8SiPhB73L9+uFEGAs1VdSU+goLJ1feoKerG0UXWuEOS8XQhAhRRbisn3eaMWxDZ21fjCUmffcM88uUqpFOqUpAmWr65dcSj+b4rBSQjSiHzAsG0gl2Dwku/nKdeilJEkB4Cf+eko+QbyP5ILxjKytGFxg6LU+T/sYHecXJDQFqNiyZg63BqM+6FYqIaZrX0sM24yWDgRNU45pyr5VgrDf3f+GYdItB6c4BuyY21iGEkssPOz4e5gWkVOew9wrYKhrq/g3tr01yWwwx4WC3b7y4JOO28gFB4GStS3tSixEQn3ukePMnrYZkUoArBeGYVoc8uIRiQWMPhNCOtHWv/MFLWOrm5L7ZLV50zB+DN2HQdSt+lcU+SKQKJPWUHQ6WIqy7ohM/ca4RtRyteZ8P2J0Kz/nJhrzw2deKeu03BfLATjZrjLL7uF1g2K4ErN7sKjVSoUbG7ZUFJUn7evIIHMahgGx+EwfSzj/4N6QHZgxWDfJ1fr3QnsthMV1ejC8jZOXnCMSalCn1hUTZ8kA6m8UDPq3q3CbbotN3DExLMJFHcjMRY0wU3rHZT3w9O5BnxgCWKkL4SSPWc2MBw="
+  - DOCKER_USERNAME=guillaumejacquenot
+  - secure: "Me5SLVZVfYXO5q5w65REGYWYciuP5FT2Wed72+Icdnz2VZk1ZnZuxXffp3lxO8bcS7Fu/Z0GJ0gfE7Jlym4H2NoneVqfX3qtGZ+VpyORM6t8hylaw1yAWt7RVzjC6VsQBozKUqV8UVD4Xn7JeSJruSEsDWRQ+cjrU+sHQMQPj+BK2IrUOuCAZ/1UbqEzts2AUviRn+1SL6TtHvaKwklS70pBah9WuVp1k6khT9j5EXjAi+LQyUZAAs3nkp689vhhVRwSRMaaT2mZwpgC+vrh031oAa8TlT1uUxA2zlUe+Jo3VVJK3b9oCKZ/y8TJcOlRhYWCRjRshqKFUVGYD/IC+edd4Gx4t223ToGNjOsBVNOybKWKUXqVYiypf3V+MbDqL2z8peop/FR5igME1RTlvQ1I1PJ84riSZ2HH0WyOH7MjYesdbIdZhlsgtLtvNKSvXB6T0gS9JDOVl2awBrsOqddaDpsAYLdxcTzub6SOxlJtvAdbPZCeyH9wOW5mmQGx+ZwG3Y5bV+AZqi1Upxxy31hA6ce20egLI+F3YGYZPpwKRWUCOGAAG8Pnorv+MqHU0mdpUHRN5gPa78UucBxE4FIMr29E5TFCmwsfRxe5zpPdJhwwzHElBVsLSKNy1h7SafhHP/DnzCcH34dfTtTBAVP2o6ecz2X57BuUHTclNL4="
 
 before_install:
 - echo "Before install"
 before_script:
-- docker pull gjacquenot/ssc_build_centos75 || true
+- docker pull sirehna/base-image-centos75-gcc485 || true
 script:
-- docker build --pull --cache-from gjacquenot/ssc_build_centos75 --tag gjacquenot/ssc_build_centos75 .
+- docker build --pull --cache-from sirehna/base-image-centos75-gcc485 --tag sirehna/base-image-centos75-gcc485 .
 after_script:
 - docker images
 after_success:
 - if [[ "$TRAVIS_BRANCH" == "master" ]];
   then
   docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD ;
-  docker push gjacquenot/ssc_build_centos75 ;
+  docker push sirehna/base-image-centos75-gcc485 ;
   fi
 notifications:
   email: true
