@@ -17,6 +17,7 @@ RUN yum update -y && \
         libstdc++-static \
         make \
         patch \
+	unzip \
         wget \
         which
 
