@@ -1,9 +1,9 @@
-# ssc_build_centos75
+# sirehna/base-image-centos75-gcc485 
 
-[![Build Status](https://travis-ci.org/Gjacquenot/ssc_build_centos75.svg?branch=master)](https://travis-ci.org/Gjacquenot/ssc_build_centos75)
+[![Build Status](https://travis-ci.org/sirehna/base-image-centos75-gcc485.svg?branch=master)](https://travis-ci.org/sirehna/base-image-centos75-gcc485)
 
-[![](https://images.microbadger.com/badges/image/gjacquenot/ssc_build_centos75.svg)](https://microbadger.com/images/gjacquenot/ssc_build_centos75 "ssc_build_centos75")
+[![](https://images.microbadger.com/badges/image/sirehna/base-image-centos75-gcc485.svg)](https://microbadger.com/images/sirehna/base-image-centos75-gcc485 "sirehna/base-image-centos75-gcc485")
 
-This repository contains the [`Dockerfile`](Dockerfile) used to build [`ssc`](https://github.com/Gjacquenot/ssc).
+This repository contains the [`Dockerfile`](Dockerfile) used to build [`ssc`](https://github.com/sirehna/base-image-centos75-gcc485).
 
-The generated docker image is stored on [docker hub](https://hub.docker.com/r/gjacquenot/ssc_build_centos75), and can be pulled with `docker pull gjacquenot/ssc_build_debian9_gcc8`.
+The generated docker image is stored on [docker hub](https://hub.docker.com/r/sirehna/base-image-centos75-gcc485), and can be pulled with `docker pull sirehna/base-image-centos75-gcc485`.
