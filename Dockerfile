@@ -1,6 +1,7 @@
 FROM centos:7.5.1804
 
 RUN yum update -y && \
+    yum install epel-release && \
     yum install -y \
         bzip2-devel \
         gcc \
@@ -19,7 +20,8 @@ RUN yum update -y && \
         patch \
         unzip \
         wget \
-        which
+        which && \
+    ln -s /usr/bin/ninja-build /usr/bin/ninja
 
 RUN mkdir -p /opt
 WORKDIR /opt
