@@ -1,7 +1,7 @@
 FROM centos:7.5.1804
 
 RUN yum update -y && \
-    yum install epel-release && \
+    yum install -y epel-release && \
     yum install -y \
         bzip2-devel \
         gcc \
