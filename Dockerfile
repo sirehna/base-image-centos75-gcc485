@@ -3,7 +3,6 @@ FROM centos:7.5.1804
 RUN yum update -y && \
     yum install -y \
         bzip2-devel \
-        cmake \
         gcc \
         gcc-c++ \
         gfortran \
